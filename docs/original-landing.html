@@ -1,0 +1,357 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SafeTalk | A Safe Space to Be Heard</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+    :root {
+      --primary: #507d78;
+      --dark: #203d3a;
+      --background: #f5f9f6;
+      --muted: #657b75;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--background);
+      color: var(--dark);
+      min-height: 100vh;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 8%;
+    }
+
+    .logo {
+      font-family: 'Outfit', sans-serif;
+      font-size: 29px;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: #9bc6b3;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      color: var(--dark);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-btn {
+      background: var(--primary);
+      color: white !important;
+      padding: 12px 23px;
+      border-radius: 30px;
+    }
+
+    .hero {
+      min-height: 75vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 65px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      filter: blur(75px);
+      opacity: 0.35;
+      z-index: -1;
+    }
+
+    .hero::before {
+      background: #b4dbcd;
+      top: 0;
+      left: -120px;
+    }
+
+    .hero::after {
+      background: #d8d1f1;
+      right: -100px;
+      bottom: 0;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e1eee7;
+      color: var(--primary);
+      border-radius: 30px;
+      padding: 10px 20px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(52px, 8vw, 100px);
+      font-weight: 800;
+      letter-spacing: -4px;
+      line-height: 1.1;
+      margin-bottom: 25px;
+    }
+
+    h1 span {
+      color: var(--primary);
+    }
+
+    .headline {
+      font-size: clamp(19px, 3vw, 27px);
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .description {
+      max-width: 600px;
+      margin: 0 auto 38px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.9;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      border-radius: 40px;
+      padding: 16px 32px;
+      font-size: 15px;
+      font-weight: 700;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--dark);
+      transform: translateY(-3px);
+    }
+
+    .btn-secondary {
+      border: 1.5px solid #a9c2b7;
+      color: var(--dark);
+    }
+
+    .btn-secondary:hover {
+      background: #e1eee7;
+    }
+
+    .privacy {
+      margin-top: 30px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .features {
+      padding: 55px 8% 85px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .feature {
+      background: white;
+      border: 1px solid #e5eee8;
+      padding: 35px;
+      border-radius: 22px;
+    }
+
+    .feature-icon {
+      font-size: 29px;
+      margin-bottom: 20px;
+    }
+
+    .feature h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .feature p {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      border-top: 1px solid #e0e9e3;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 22px 6%;
+      }
+
+      .nav-links {
+        gap: 15px;
+      }
+
+      .nav-links a:not(.nav-btn) {
+        display: none;
+      }
+
+      .hero {
+        padding: 75px 20px;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+        padding: 35px 6% 65px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="#" class="logo">Safe<span>Talk.</span></a>
+
+    <div class="nav-links">
+      <a href="#about">About Us</a>
+      <a href="#features">How It Works</a>
+      <a href="#support" class="nav-btn">Get Support</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+
+        <div class="tag">
+          A Safe Space for Every Student
+        </div>
+
+        <h1>Safe<span>Talk.</span></h1>
+
+        <p class="headline">
+          You don't have to say "I'm fine."
+        </p>
+
+        <p class="description">
+          Some feelings are difficult to put into words.
+          Here, you can share what's on your mind,
+          express yourself without fear of judgment,
+          and find someone who is ready to listen.
+          You deserve to be heard.
+        </p>
+
+        <div class="buttons">
+          <a href="#support" class="btn btn-primary">
+            Start Talking &rarr;
+          </a>
+
+          <a href="#about" class="btn btn-secondary">
+            Learn More
+          </a>
+        </div>
+
+        <p class="privacy">
+          &#9825; Your voice matters. Your identity stays yours.
+        </p>
+
+      </div>
+    </section>
+
+    <section class="features" id="features">
+
+      <div class="feature">
+        <div class="feature-icon">🌿</div>
+        <h3>Share Anonymously</h3>
+        <p>
+          Express your thoughts and feelings without
+          having to reveal who you are.
+        </p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">💬</div>
+        <h3>Be Heard</h3>
+        <p>
+          Connect with compassionate listeners
+          in a respectful, judgment-free environment.
+        </p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">🤍</div>
+        <h3>Find Support</h3>
+        <p>
+          Take the first step toward emotional
+          well-being with guidance and support.
+        </p>
+      </div>
+
+    </section>
+  </main>
+
+  <footer id="about">
+    <p>
+      SafeTalk &copy; 2026 |
+      A student well-being initiative inspired by SDG 3
+    </p>
+    <p style="margin-top: 8px;" id="support">
+      Because everyone deserves to be heard.
+    </p>
+  </footer>
+
+</body>
+</html>
