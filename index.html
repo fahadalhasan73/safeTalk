@@ -256,6 +256,11 @@
         grid-template-columns: 1fr;
         padding: 35px 6% 65px;
       }
+      a:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
     }
   </style>
 </head>
@@ -268,7 +273,12 @@
     <div class="nav-links">
       <a href="#about">About Us</a>
       <a href="#features">How It Works</a>
-      <a href="#support" class="nav-btn">Get Support</a>
+     <a
+  href="https://safetalk-eta.vercel.app/"
+  class="nav-btn"
+>
+  Get Support
+</a>
     </div>
   </nav>
 
@@ -295,9 +305,13 @@
         </p>
 
         <div class="buttons">
-          <a href="#support" class="btn btn-primary">
-            Start Talking &rarr;
-          </a>
+          <a
+  href="https://safetalk-eta.vercel.app/"
+  class="btn btn-primary"
+  aria-label="Open SafeTalk to start talking"
+>
+  Start Talking &rarr;
+</a>
 
           <a href="#about" class="btn btn-secondary">
             Learn More
